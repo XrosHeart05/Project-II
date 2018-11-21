@@ -1,0 +1,32 @@
+.parallax-container .center{
+    height: 50%;
+    align-items: center;
+}
+
+.parallax-container .center .hea{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.parallax-container .center .hea h1{
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    font-size: 3.2em;
+    margin-top: 3.4em;
+    margin-bottom: 0;
+}
+
+.parallax-container .center p{
+    color: #ffffff;
+    font-size: 1.2em;
+    margin-top: 0;
+    margin-bottom: 1em;
+    text-decoration: underline;
+}
+
+.transparent-div{
+    background-color: rgba(0, 0, 0, 0.2);
+}
