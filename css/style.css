@@ -1,3 +1,15 @@
+.center > div > h2 > a:hover{
+    color:#b1acac;
+}
+
+h3{
+    font-size: 1.6em;
+}
+
+.header{
+    color: #ffffff;
+}
+
 .parallax-container .center{
     height: 50%;
     align-items: center;
@@ -25,6 +37,20 @@
     margin-top: 0;
     margin-bottom: 1em;
     text-decoration: underline;
+}
+
+.section > h2 > a:hover{
+    color: #b1acac;
+}
+
+.space-empty{
+    margin: 5em 0px;
+}
+
+span{
+    font-weight: bold;
+    font-size: 1.4em;
+    color: #ffffff;
 }
 
 .transparent-div{
