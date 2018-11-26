@@ -1,10 +1,78 @@
 body{
     margin: 0;
-    background-image: url('../images/road.gif');
-    background-repeat: no-repeat;
-    background-position: 0%;
+    background: radial-gradient(circle at center 150%, #2a6486e7, #092d8f , #00944a);
+    min-height: 97vh;
+    overflow: hidden;
+    height: 100vh;
 }
 
+.emp{
+    height: 30%;
+    color: #ffffff;
+    border: solid #00944f 5px;
+    border-radius: 10px;
+    margin: 2em 10em;
+    padding-top: 1em;
+    background: linear-gradient(cyan, lightgreen);
+}
+
+.login-box{
+    margin: 0px 10em;
+    padding: 2em 0px;
+    border: solid #008f94 5px;
+    border-radius: 10px;
+    background: linear-gradient(#33a89fe7, #652caf , #d012d6);
+    padding-bottom: 0px;
+}
+
+.login-box label {
+    font-size: 1.22em;
+}
+
+input[type=text]:not(.browser-default):focus:not([readonly]) + label,
+input[type=password]:not(.browser-default):focus:not([readonly]) + label{
+    color: #ffffff;
+    font-size: 2em;
+}
+
+.login-box input{
+    color: #ffffff;
+    text-align: center;
+}
+
+@media only screen and (max-width: 992px){
+    .emp{
+        height: 30%;
+        color: #ffffff;
+        border: solid #008f94 1px;
+        border-radius: 10px;
+        margin: 2em 4em;
+        padding-top: 1em;
+    }
+    .login-box{
+        margin: 0px 4em;
+        padding: 0;
+        border: solid #008f94 1px;
+        border-radius: 10px;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .emp{
+        height: 30%;
+        color: #ffffff;
+        border: solid #008f94 1px;
+        border-radius: 10px;
+        margin: 2em 2em;
+        padding-top: 1em;
+    }
+    .login-box{
+        margin: 0px 2em;
+        padding: 0;
+        border: solid #008f94 1px;
+        border-radius: 10px;
+    }
+}
 .transparent-div{
     background-color: rgba(0, 0, 0, 0.2);
     height: 100%;
