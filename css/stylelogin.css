@@ -6,6 +6,15 @@ body{
     height: 100vh;
 }
 
+.car-pic-box{
+    background: url(../images/road.gif);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding: 1em 0em;
+    margin: 0.6em;
+    border-radius: 20px;
+}
+
 .emp{
     height: 30%;
     color: #ffffff;
@@ -13,16 +22,30 @@ body{
     border-radius: 10px;
     margin: 2em 10em;
     padding-top: 1em;
-    background: linear-gradient(cyan, lightgreen);
+    background: linear-gradient(rgba(0, 255, 255, 0.678), rgba(144, 238, 144, 0.555));
 }
 
 .login-box{
     margin: 0px 10em;
-    padding: 2em 0px;
+    padding: 1em 0px;
     border: solid #008f94 5px;
     border-radius: 10px;
     background: linear-gradient(#33a89fe7, #652caf , #d012d6);
     padding-bottom: 0px;
+}
+
+.login-box form .row .center a{
+    font-size: 1.2em;
+}
+
+.login-box form .row .center a:hover{
+    color: #e2e2e2;
+    text-decoration: underline;
+}
+
+.login-box form .row .center p{
+    margin-bottom: 0px;
+    color: #ffffff;
 }
 
 .login-box label {
@@ -41,6 +64,10 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
 }
 
 @media only screen and (max-width: 992px){
+    .car-pic-box{
+        background-size: 110%;
+        border-radius: 20px;
+    }
     .emp{
         height: 30%;
         color: #ffffff;
@@ -58,6 +85,10 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
 }
 
 @media only screen and (max-width: 600px){
+    .car-pic-box{
+        background-size: 200%;
+        border-radius: 20px;
+    }
     .emp{
         height: 30%;
         color: #ffffff;
@@ -73,6 +104,45 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
         border-radius: 10px;
     }
 }
+
+@media only screen and (max-width: 375px){
+    .car-pic-box{
+        background-size: 240%;
+        border-radius: 20px;
+    }
+}
+
+@media only screen and (max-width: 320px){
+    .car-pic-box{
+        background-size: 300%;
+        border-radius: 10px;
+    }
+    .emp{
+        height: 10%;
+        color: #ffffff;
+        border: solid #008f94 1px;
+        border-radius: 10px;
+        margin: 0.4em 0.8em;
+        padding-top: 0px;
+    }
+    .login-box{
+        margin: 0px 0.8em;
+        padding: 0;
+        border: solid #008f94 1px;
+        border-radius: 10px;
+    }
+    .login-box form{
+        padding: 0;
+    }
+    .login-box form input{
+        padding: 0;
+    }
+
+    .login-box form button{
+        
+    }
+}
+
 .transparent-div{
     background-color: rgba(0, 0, 0, 0.2);
     height: 100%;
