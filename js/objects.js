@@ -1,7 +1,7 @@
 /**
  * User object
  */
-function registerUser() {
+function userData() {
     let fir_name = $.trim($('#first_name').val());
     let las_name = $.trim($('#last_name').val());
     let email = $.trim($('#email').val());
