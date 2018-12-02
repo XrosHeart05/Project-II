@@ -1,7 +1,7 @@
 /**
  * User object
  */
-function user() {
+function registerUser() {
     let fir_name = $.trim($('#first_name').val());
     let las_name = $.trim($('#last_name').val());
     let email = $.trim($('#email').val());
@@ -13,6 +13,6 @@ function user() {
         email,
         username,
         password
-    };
+    }
     return user;
 }
