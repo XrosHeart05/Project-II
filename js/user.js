@@ -7,12 +7,22 @@
  */
 function saveUser() {
     const user = userData();
+    let users = getTableData('users');
     if (user.fir_name.length > 0
         && user.las_name.length > 0
         && user.username.length > 0) {
         if (!(user.password.length < 8)) {
-            insertToTable('users', user);
-            popR();
+            if (users.find(u => u.username === user.username)) {
+                let text = 'The username \'' + user.username + '\' is already in use';
+                popU(text);
+            }
+            if (users.find(u => u.email === user.email)) {
+                let text2 = 'The email \'' + user.email + '\' is already in use'
+                popU(text2);
+            } else {
+                insertToTable('users', user);
+                popR();
+            }
         }
     }
 }
@@ -33,16 +43,28 @@ function popR() {
 }
 
 /**
+ * Show a toast with a text
+ * @param {*} uname Username typed
+ */
+function popU(text) {
+    var toastHTML = '<span>' + text + '</span><button class="btn-flat toast-action">OK</button>';
+    M.toast({
+        html: toastHTML,
+        displayLength: 3000,
+        classes: "rounded blue"
+    });
+}
+
+/**
  * Logged in an user at app
  */
 function loginUser() {
     const userL = userLoginData();
     let users = getTableData('users');
     users.forEach(element => {
-        console.log(element);
-        console.log(userL);
         if (element.username == userL.username_log
             && element.password == userL.password_log) {
+            userLogged(userL);
             popL(element.username);
         }
     });
@@ -52,7 +74,7 @@ function loginUser() {
  * Show a message in window and redirect to login page
  */
 function popL(u) {
-    var toastHTML = '<span>Welcome ' + u  + '</span><button class="btn-flat toast-action" onclick="location.href=\'../html/main.html\'">Let\'s go</button>';
+    var toastHTML = '<span>Welcome ' + u + '</span><button class="btn-flat toast-action" onclick="location.href=\'../html/main.html\'">Let\'s go</button>';
     M.toast({
         html: toastHTML,
         displayLength: 1500,
@@ -61,6 +83,15 @@ function popL(u) {
             window.location = '../html/main.html'
         }
     });
+}
+
+/**
+ * Ask for the user logged
+ * @param {*} us User object
+ */
+function userLogged(us) {
+    let users = getTableData('users');
+    return users.find(user => user.username === us.username_log && user.password === us.password_log);
 }
 
 /**
