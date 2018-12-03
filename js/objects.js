@@ -16,3 +16,16 @@ function userData() {
     }
     return user;
 }
+
+/**
+ * User login data
+ */
+function userLoginData(){
+    let username_log = $.trim($('#username-login').val());
+    let password_log = $.trim($('#password-login').val());
+    let user_log = {
+        username_log,
+        password_log
+    }
+    return user_log;
+}
