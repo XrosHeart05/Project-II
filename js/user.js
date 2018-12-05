@@ -64,7 +64,8 @@ function loginUser() {
     users.forEach(element => {
         if (element.username == userL.username_log
             && element.password == userL.password_log) {
-            userLogged(userL);
+            let u1 = userLogged(userL);
+            saveToSessionStorage('user', u1);
             popL(element.username);
         }
     });
@@ -91,7 +92,29 @@ function popL(u) {
  */
 function userLogged(us) {
     let users = getTableData('users');
-    return users.find(user => user.username === us.username_log && user.password === us.password_log);
+    let u1 = users.find(user => user.username === us.username_log && user.password === us.password_log);
+    return u1;
+}
+
+/**
+ * Show the username that is logged in
+ * @param {*} key key of the sessionStorage
+ * @param {*} idObject id of the object into the HTML
+ */
+function showUsername(key ,idObject){
+    let user1 = getDataFromSessionStorage(key);
+    let uname = user1.username;
+    let ta = jQuery(idObject);
+    ta.html(uname);
+}
+
+/**
+ * Logout an user clearing the sessionStorageS
+ * @param {*} wiLoc windowLocation to go
+ */
+function logOut(wiLoc){
+    sessionStorage.clear();
+    window.location = wiLoc;
 }
 
 /**
@@ -103,7 +126,11 @@ function bindEvents() {
     });
     jQuery('#login-but').bind('click', (element) => {
         loginUser();
-    })
+    });
+    showUsername('user', '#user-logged-main');
+    jQuery('#logout').bind('click', (element) => {
+        logOut('../html/login.html');
+    });
 }
 
 /**

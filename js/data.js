@@ -14,6 +14,30 @@ function saveToLocalStorage(key, value) {
 }
 
 /**
+ * Clear all the data saved in session storage and save the
+ * new value in the session storage relationed with the key
+ * @param {*} key the key of the object
+ * @param {*} value the value to be saved
+ */
+function saveToSessionStorage(key, value) {
+    sessionStorage.clear();
+    sessionStorage.setItem(key, JSON.stringify(value));
+    return true;
+}
+
+/**
+ * Get data from sessionStorage
+ * @param {*} tableName name of the table to be asked
+ */
+function getDataFromSessionStorage(tableName){
+    let table = JSON.parse(sessionStorage.getItem(tableName));
+    if (!table) {
+        table = [];
+    }
+    return table;
+}
+
+/**
  * Insert a new object into a table located in the localStorage
  * @param {*} tableName name of the table to be inserted in 
  * localStorage
@@ -56,9 +80,9 @@ function deleteFromTable(tableName, objectID) {
  * Get the data of the table searched
  * @param {*} tableName name of the table to be obtained
  */
-function getTableData(tableName){
+function getTableData(tableName) {
     let table = JSON.parse(localStorage.getItem(tableName));
-    if(!table){
+    if (!table) {
         table = [];
     }
     return table;

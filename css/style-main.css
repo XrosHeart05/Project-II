@@ -17,6 +17,11 @@ nav .brand-logo img{
     height: 2em;
 }
 
+.navi {
+    margin: 0px 0.4em;
+    cursor: default;
+}
+
 .parallax-container{
     border-radius: 10px;
 }
