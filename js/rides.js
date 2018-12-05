@@ -6,7 +6,7 @@
 function saveRide(){
     const ride = rideData();
     let rides = getTableData('rides');
-    
+    let us = usernameLog('user');
 }
 
 /**
@@ -17,3 +17,5 @@ $(document).ready(function () {
         opacity: 0.6
     });
 });
+
+saveRide();

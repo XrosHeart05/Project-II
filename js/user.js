@@ -101,11 +101,12 @@ function userLogged(us) {
  * @param {*} key key of the sessionStorage
  * @param {*} idObject id of the object into the HTML
  */
-function showUsername(key ,idObject){
+function usernameLog(key ,idObject){
     let user1 = getDataFromSessionStorage(key);
     let uname = user1.username;
     let ta = jQuery(idObject);
     ta.html(uname);
+    return uname;
 }
 
 /**
@@ -127,7 +128,7 @@ function bindEvents() {
     jQuery('#login-but').bind('click', (element) => {
         loginUser();
     });
-    showUsername('user', '#user-logged-main');
+    usernameLog('user', '#user-logged-main');
     jQuery('#logout').bind('click', (element) => {
         logOut('../html/login.html');
     });
