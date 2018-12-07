@@ -8,6 +8,7 @@
     <title>Guapool Rides</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="../css/materialize.min.css">
     <link rel="stylesheet" href="../css/style-rides.css">
 </head>
 
@@ -55,9 +56,18 @@
                                 <div class="col s0 m1 l1"></div>
                             </div>
                             <div class="row">
+                                <div class="col s0 m1 l1"></div>
+                                <div class="input-field col s12 m10 l10">
+                                    <input id="ride_add_descr" type="text" class="validate">
+                                    <label for="ride_add_descr">Ride description</label>
+                                </div>
+                                <div class="col s0 m1 l1"></div>
+                            </div>
+                            <div class="row">
                                 <div class="col s2 m2 l2"></div>
                                 <div class="col s8 m8 l8">
-                                    <button id="ride-add-ride" class="btn waves-effect waves-light" type="button">Add Ride
+                                    <button id="ride-add-ride" class="btn waves-effect waves-light" type="button">Add
+                                        Ride
                                         <i class="material-icons right">send</i>
                                     </button>
                                 </div>
@@ -78,6 +88,7 @@
     <script src="../js/materialize.js"></script>
     <script src="../js/objects.js"></script>
     <script src="../js/data.js"></script>
+    <script src="../js/user.js"></script>
     <script src="../js/rides.js"></script>
 </body>
 

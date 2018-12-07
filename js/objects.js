@@ -34,10 +34,16 @@ function userLoginData(){
  * Ride add data
  */
 function rideData(){
+    let ride_id = 0;
+    let ride_user = '';
+    let ride_descr = $.trim($('#ride_add_descr').val());
     let ride_name = $.trim($('#ride_add_name').val());
     let ride_dep = $.trim($('#ride_add_dep').val());
     let ride_arr = $.trim($('#ride_add_arr').val());
     let ride = {
+        ride_id,
+        ride_user,
+        ride_descr,
         ride_name,
         ride_dep,
         ride_arr

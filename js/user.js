@@ -97,13 +97,21 @@ function userLogged(us) {
 }
 
 /**
+ * User in sessionStorage
+ * @param {*} key key in sessionStorage
+ */
+function uLog(key) {
+    let user1 = getDataFromSessionStorage(key);
+    return uname = user1.username;
+}
+
+/**
  * Show the username that is logged in
  * @param {*} key key of the sessionStorage
  * @param {*} idObject id of the object into the HTML
  */
-function usernameLog(key ,idObject){
-    let user1 = getDataFromSessionStorage(key);
-    let uname = user1.username;
+function usernameLog(key, idObject) {
+    let uname = uLog(key);
     let ta = jQuery(idObject);
     ta.html(uname);
     return uname;
@@ -113,7 +121,7 @@ function usernameLog(key ,idObject){
  * Logout an user clearing the sessionStorageS
  * @param {*} wiLoc windowLocation to go
  */
-function logOut(wiLoc){
+function logOut(wiLoc) {
     sessionStorage.clear();
     window.location = wiLoc;
 }
