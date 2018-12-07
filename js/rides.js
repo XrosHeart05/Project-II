@@ -35,11 +35,40 @@ function renderTableRides(htmlObj, tableName) {
     let row1 = `<tr><th>Ride Name</th><th>Departure</th><th>Arrival</th><th></th></tr>`
     rows += row1;
     rides.forEach(rideEl => {
-        let row2 = `<tr><td>${rideEl.ride_name}</td><td>${rideEl.ride_dep}</td><td>${rideEl.ride_arr}</td>`;
-        row2 += `<td><a onclick="editEntity(this)" data-id="${rideEl.ride_id}" data-entity="${tableName}" class="edit"><i class="material-icons right amber-text">create</i>Edit</a><a  onclick="deleteEntity(this);" data-id="${rideEl.ride_id}" data-entity="${tableName}" class="delete"><i class="material-icons right red-text">clear</i>Delete</a></td>`
-        rows += row2 + '</tr>';
+        if(rideEl.ride_act){
+            let row2 = `<tr><td>${rideEl.ride_name}</td><td>${rideEl.ride_dep}</td><td>${rideEl.ride_arr}</td>`;
+            row2 += `<td><a onclick="editEntity(this)" data-id="${rideEl.ride_id}" data-entity="${tableName}" class="edit"><i class="material-icons right amber-text">create</i>Edit</a><a  onclick="deleteRide(this, 'rides');" data-id="${rideEl.ride_id}" data-entity="${tableName}" class="delete"><i class="material-icons right red-text">clear</i>Delete</a></td>`
+            rows += row2 + '</tr>';
+        }
     });
     table.html(rows);
+}
+
+/**
+ * Delete a ride
+ * @param {*} element element selected
+ * @param {*} tableName name of table to be searched
+ */
+function deleteRide(element, tableName) {
+    let object = $(element).data();
+    let id = object.id;
+    changeActive(tableName, id);
+}
+
+/**
+ * Change the active from true to false
+ * @param {*} tableName name of table
+ * @param {*} id id of the object to be changed
+ */
+function changeActive(tableName, id){
+    let rides = getTableData(tableName);
+    rides.forEach(ele => {
+        if(ele.ride_id == id){
+            ele.ride_act = false;
+        }
+    });
+    localStorage.removeItem(tableName);
+    saveToLocalStorage(tableName, rides);
 }
 
 /**

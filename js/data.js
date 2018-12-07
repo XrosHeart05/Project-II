@@ -91,7 +91,3 @@ function getTableData(tableName) {
 function editEntity(element){
 
 }
-
-function deleteEntity(element){
-
-}
