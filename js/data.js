@@ -87,3 +87,11 @@ function getTableData(tableName) {
     }
     return table;
 }
+
+function editEntity(element){
+
+}
+
+function deleteEntity(element){
+
+}

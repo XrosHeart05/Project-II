@@ -3,6 +3,50 @@ body{
     color: #ffffff;
 }
 
+.delete{
+    font-size: 1.4em;
+    background-color: #ffffff;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 0.2em 0.4em;
+    padding: 0.2em 0.4em;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.delete:hover{
+    color: #ffffff;
+    background-color: #D50000;
+    padding: 0.2em 0.6em;
+}
+
+.delete:hover i{
+    background-color: rgb(175, 0, 0);
+    transition: all 0.3s;
+}
+
+.edit{
+    font-size: 1.4em;
+    background-color: #ffffff;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 0.2em 0.4em;
+    padding: 0.2em 0.4em;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.edit:hover{
+    color: #ffffff;
+    background-color: #ffc107;
+    padding: 0.2em 0.6em;
+}
+
+.edit:hover i{
+    background-color: #d4a002;
+    transition: all 0.3s;
+}
+
 .emp{
     width: 100%;
     height: 15px;
@@ -26,7 +70,15 @@ nav .brand-logo img{
     border-radius: 10px;
 }
 
-.row a{
+table{
+    color: #ffffff;
+}
+
+table tbody tr th, table tbody tr td{
+    text-align: center;
+}
+
+.trans-ani{
     font-size: 1.4em;
     background-color: #ffffff;
     border-radius: 5px;
@@ -35,18 +87,10 @@ nav .brand-logo img{
     transition: all 0.3s;
 }
 
-.row a:hover{
+.trans-ani:hover{
     padding: 0.2em 2em;
     background-color: #69f0ae;
     color: #ffffff;
-}
-
-table{
-    color: #ffffff;
-}
-
-table tbody tr th, table tbody tr td{
-    text-align: center;
 }
 
 .trans-back{
