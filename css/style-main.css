@@ -74,10 +74,6 @@ table{
     color: #ffffff;
 }
 
-table tbody tr th, table tbody tr td{
-    text-align: center;
-}
-
 .trans-ani{
     font-size: 1.4em;
     background-color: #ffffff;
@@ -111,6 +107,12 @@ table tbody tr th, table tbody tr td{
 }
 
 @media only screen and (max-width: 425px){
+    .delete{
+        font-size: 1em;
+        margin: 0.05em 0.1em;
+        padding: 0.05em 0.1em;
+    }
+
     nav .brand-logo img{
         padding: 0; 
         height: 1.9em;
@@ -122,6 +124,12 @@ table tbody tr th, table tbody tr td{
 }
 
 @media only screen and (max-width: 375px){
+    .delete{
+        font-size: 1em;
+        margin: 0.05em 0.1em;
+        padding: 0.05em 0.1em;
+    }
+
     nav .brand-logo img{
         padding: 0.1em; 
         height: 1.9em;
