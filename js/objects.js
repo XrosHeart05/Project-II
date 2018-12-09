@@ -59,14 +59,23 @@ function rideData() {
     return ride;
 }
 
+/**
+ * Ask in the main for checked checkboxes to charge the
+ * days into an array
+ */
 function daysRide() {
     let days = [];
     $("input[type=checkbox]:checked").each(function () {
-        days.push($(this).prop('id'));
+        days.push($(this).prop("id"));
     });
     return days;
 }
 
+/**
+ * Search in the localStorage for the days to be checked
+ * by the user when previously has saved a ride
+ * @param {*} days days of the element to be searched
+ */
 function loadCheckbox(days) {
     $('#ride_add_date_M').attr('checked', false);
     $('#ride_add_date_K').attr('checked', false);
