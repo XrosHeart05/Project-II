@@ -15,9 +15,9 @@ function saveRide() {
     ride.ride_id = rides.length + 1;
     if (ride.ride_name.length <= 0
         || ride.ride_dep.length <= 0
-        || ride.ride_arr <= 0
-        || ride.ride_dep_time <= 0
-        || ride.ride_arr_time <= 0) {
+        || ride.ride_arr.length <= 0
+        || ride.ride_dep_time.length <= 0
+        || ride.ride_arr_time.length <= 0) {
         popU('No blank spaces');
     } else {
         if (ride.ride_dep === ride.ride_arr) {
@@ -33,7 +33,8 @@ function saveRide() {
             insertToTable('rides', ride);
             document.getElementById('ride-add-form').reset();
             popU('Ride suscesfully added ' + u);
-            renderTableRides('rides_user', 'rides')
+            renderTableRides('rides_user', 'rides');
+            return true;
         }
     }
 }
@@ -62,7 +63,18 @@ function editRide(element, tableName) {
     let id = object.id;
     console.log(id);
     chargeModalDataRide(tableName, id);
-    let table = getTableData(tableName);
+    document.getElementById('ride-add-ride').style.display = "none";
+    document.getElementById('ride-edit-ride').style.display = "block";
+    document.getElementById('ride-edit-ride').value = id;
+}
+
+function tes() {
+    let va = $('#ride-edit-ride').val();
+    console.log(va);
+    if (saveRide()) {
+        changeActive('rides', va);
+        renderTableRides('rides_user', 'rides');
+    }
 }
 
 /**
@@ -138,13 +150,17 @@ $(document).ready(function () {
  * bindEvents of the document
  */
 function bindEventsR() {
-
     renderTableRides('rides_user', 'rides');
-    jQuery('#add-ride').bind('click', (element) =>{
+    jQuery('#add-ride').bind('click', (element) => {
         document.getElementById('ride-add-form').reset();
+        document.getElementById('ride-edit-ride').style.display = "none";
+        document.getElementById('ride-add-ride').style.display = "block";
     })
     jQuery('#ride-add-ride').bind('click', (element) => {
         saveRide();
+    });
+    jQuery('#ride-edit-ride').bind('click', (element) => {
+        tes();
     });
 }
 
