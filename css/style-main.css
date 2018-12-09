@@ -94,6 +94,18 @@ table{
     border-radius: 10px;
 }
 
+#user-logged-main{
+    cursor: pointer;
+}
+
+#user-set-modal{
+    color: #000000;
+}
+
+#user-set-modal h2{
+    text-align: center;
+}
+
 @media only screen and (max-width: 1125px){
     .row a:hover{
         padding: 0.2em 1.2em;

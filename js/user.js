@@ -27,6 +27,38 @@ function saveUser() {
     }
 }
 
+function editUser() {
+    const ued = userEditData();
+    let users = getTableData('users');
+    if (ued.fname.length > 0
+        && ued.lname.length > 0
+        && ued.ema.length > 0
+        && ued.pass.length > 0) {
+        if (ued.pass.length < 8) {
+            popU('The password min-length is of 8 characters');
+        } else {
+
+        }
+    } else {
+        popU('No blank spaces');
+    }
+}
+
+function chargeModalUserData() {
+    let users = getTableData('users');
+    let user = getDataFromSessionStorage('user');
+    users.forEach(element => {
+        if (user.username === element.username) {
+            let fn = element.fir_name;
+            let ln = element.las_name;
+            let em = element.email;
+            $('#fir-name-edit').val(fn);
+            $('#las-name-edit').val(ln);
+            $('#ema-edit').val(em);
+        }
+    });
+}
+
 /**
  * Show a message in window and redirect to login page
  */
@@ -96,6 +128,26 @@ function userLogged(us) {
     return u1;
 }
 
+function uModal() {
+    let users = getTableData('users');
+    let u = getDataFromSessionStorage('user');
+    users.forEach(element => {
+        if (element.username === u.username) {
+            let uname = u.username;
+            let fi = u.fir_name;
+            let la = u.las_name;
+            let com = fi + ' ' + la;
+            let ema = u.email;
+            let uH = jQuery('#user-log-modal');
+            uH.html(uname);
+            let coH = jQuery('#user-com-name');
+            coH.html(com);
+            let emH = jQuery('#user-ema-name');
+            emH.html(ema);
+        }
+    });
+}
+
 /**
  * User in sessionStorage
  * @param {*} key key in sessionStorage
@@ -133,10 +185,19 @@ function bindEvents() {
     jQuery('#register-user-but').bind('click', (element) => {
         saveUser();
     });
+    jQuery('#user-edit').bind('click', (element) => {
+        chargeModalUserData();
+    });
+    jQuery('#edit-user-but').bind('click', (element) => {
+        editUser();
+    });
     jQuery('#login-but').bind('click', (element) => {
         loginUser();
     });
     usernameLog('user', '#user-logged-main');
+    jQuery('#user-logged-main').bind('click', (element) => {
+        uModal();
+    });
     jQuery('#logout').bind('click', (element) => {
         logOut('../html/login.html');
     });

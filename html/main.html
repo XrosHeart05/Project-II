@@ -14,7 +14,6 @@
 
 <body>
     <ul id="dropdown1" class="dropdown-content">
-        <li><a href="#!">Settings</a></li>
         <li><a id="logout">Logout</a></li>
     </ul>
     <nav>
@@ -22,9 +21,9 @@
             <a href="main.html" class="brand-logo"><img src="../images/guapool-logo.jpeg"></a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-                <li id="user-logged-main" class="navi"></li>
+                <li class="modal-trigger" href="#user-set-modal" id="user-logged-main" class="navi"></li>
                 <li>
-                    <a class="dropdown-trigger" href="#!" data-target="dropdown1">
+                    <a class="dropdown-trigger" data-target="dropdown1">
                         <i class="material-icons right">arrow_drop_down</i>
                     </a>
                 </li>
@@ -32,9 +31,63 @@
         </div>
     </nav>
     <ul class="sidenav" id="mobile-demo">
-        <li><a href="">Settings</a></li>
-        <li><a href="">Logout</a></li>
+        <li><a class="modal-trigger" href="#user-set-modal" id="user-logged-main"></a></li>
+        <li><a id="logout">Logout</a></li>
     </ul>
+    <div id="user-set-modal" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <h2 id="user-log-modal"></h2>
+            <div class="row container">
+                <div class="row center">
+                    <div class="col s12 m12 l12">
+                        <p id="user-com-name"></p>
+                    </div>
+                    <div class="col s12 m12 l12">
+                        <p id="user-ema-name"></p>
+                    </div>
+                    <div class="col s12 m12 l12">
+                        <button class="modal-trigger btn waves-effect waves-light" href="#user-edit-modal" id="user-edit"
+                            type="button">Edit data
+                            <i class="material-icons right">create</i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="user-edit-modal" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <div class="row container">
+                <div class="row center">
+                    <form id="form-edit-user">
+                        <div class="input col s12 m12 l12">
+                            <label for="fir-name-edit">First Name</label>
+                            <input id="fir-name-edit" type="text" class="validate">
+                        </div>
+                        <div class="input col s12 m12 l12">
+                            <label for="las-name-edit">Last Name</label>
+                            <input id="las-name-edit" type="text" class="validate">
+                        </div>
+                        <div class="input col s12 m12 l12">
+                            <label for="ema-edit">Email</label>
+                            <input id="ema-edit" type="email" class="validate">
+                        </div>
+                        <div class="input col s12 m12 l12">
+                            <label for="pas-edit">Password</label>
+                            <input id="pas-edit" type="password" class="validate" minlength="8">
+                            <span class="helper-text" data-error="Min-lenght is of 8 characters"></span>
+                        </div>
+                        <div class="input col s12 m12 l12">
+                            <button id="edit-user-but" class="btn waves-effect waves-light" type="button">Save
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
     <div class="emp"></div>
     <div class="row container">
         <div class="trans-back">
@@ -109,7 +162,7 @@
                                     <input type="text" class="timepicker" id="ride_add_arr_time" value="07:30 AM">
                                 </div>
                                 <div class="input field col s0 m7 l7">
-                                    <div class="col s3 m3 l3">
+                                    <div class="col s6 m3 l3">
                                         <p>
                                             <label>
                                                 <input type="checkbox" checked="checked" id="ride_add_date_M">
@@ -117,7 +170,7 @@
                                             </label>
                                         </p>
                                     </div>
-                                    <div class="col s3 m3 l3">
+                                    <div class="col s6 m3 l3">
                                         <p>
                                             <label>
                                                 <input type="checkbox" checked="checked" id="ride_add_date_K">
@@ -125,7 +178,7 @@
                                             </label>
                                         </p>
                                     </div>
-                                    <div class="col s3 m3 l3">
+                                    <div class="col s6 m3 l3">
                                         <p>
                                             <label>
                                                 <input type="checkbox" id="ride_add_date_W">
@@ -133,7 +186,7 @@
                                             </label>
                                         </p>
                                     </div>
-                                    <div class="col s3 m3 l3">
+                                    <div class="col s6 m3 l3">
                                         <p>
                                             <label>
                                                 <input type="checkbox" id="ride_add_date_T">
@@ -141,7 +194,7 @@
                                             </label>
                                         </p>
                                     </div>
-                                    <div class="col s3 m3 l3">
+                                    <div class="col s6 m3 l3">
                                         <p>
                                             <label>
                                                 <input type="checkbox" id="ride_add_date_F">
@@ -149,7 +202,7 @@
                                             </label>
                                         </p>
                                     </div>
-                                    <div class="col s3 m3 l3">
+                                    <div class="col s6 m3 l3">
                                         <p>
                                             <label>
                                                 <input type="checkbox" id="ride_add_date_S">
@@ -157,7 +210,7 @@
                                             </label>
                                         </p>
                                     </div>
-                                    <div class="col s3 m3 l3">
+                                    <div class="col s6 m3 l3">
                                         <p>
                                             <label>
                                                 <input type="checkbox" id="ride_add_date_Su">
@@ -174,7 +227,8 @@
                                         Ride
                                         <i class="material-icons right">send</i>
                                     </button>
-                                    <button id="ride-edit-ride" class="btn waves-effect waves-light" type="button" style="display:none">Edit
+                                    <button id="ride-edit-ride" class="btn waves-effect waves-light" type="button"
+                                        style="display:none">Edit
                                         Ride
                                         <i class="material-icons right">send</i>
                                     </button>

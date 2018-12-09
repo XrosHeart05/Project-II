@@ -31,6 +31,23 @@ function userLoginData() {
 }
 
 /**
+ * User edited data
+ */
+function userEditData() {
+    let fname = $.trim($('#fir-name-edit').val());
+    let lname = $.trim($('#las-name-edit').val());
+    let ema = $.trim($('#ema-edit').val());
+    let pass = $.trim($('#pas-edit').val());
+    let userE = {
+        fname,
+        lname,
+        ema,
+        pass
+    }
+    return userE;
+}
+
+/**
  * Ride add data
  */
 function rideData() {
