@@ -58,6 +58,48 @@ function renderTableRides(htmlObj, tableName) {
     table.html(rows);
 }
 
+
+function chargeSearchTable(htmlObj, tableName, idDep, idArr) {
+    let table = jQuery(`#${htmlObj}`);
+    let rows = "";
+    let rides = getTableData(tableName);
+    let users = getTableData('users');
+    let m993 = window.matchMedia("(max-width: 993px)");
+    let row1 = `<thead><tr><th>Ride Name</th><th>Departure</th><th>Arrival</th><th>Departure time</th><th>Arrival time</th><th>Username</th><th>Email</th></tr></thead>`
+    rides.forEach((element, i) => {
+        let un = element.ride_user;
+        let em = emailUser(un);
+        if (m993.matches) {
+            if (!idDep.length > 0 && !idArr.length > 0) {
+                rows += row1;
+                let row2 = `<tbody><tr><td>${element.ride_name}</td><td>${element.ride_dep}</td><td>${element.ride_arr}</td><td>${element.ride_dep_time}</td><td>${element.ride_arr_time}</td><td>${element.ride_user}</td><td>${em}</td></tr>`;
+                rows += row2;
+            } else {
+                if (element.ride_dep.toLowerCase() == idDep.toLowerCase() || element.ride_arr.toLowerCase() == idArr.toLowerCase()) {
+                    rows += row1;
+                    let row2 = `<tr><td>${element.ride_name}</td><td>${element.ride_dep}</td><td>${element.ride_arr}</td><td>${element.ride_dep_time}</td><td>${element.ride_arr_time}</td><td>${element.ride_user}</td><td>${em}</td></tr>`;
+                    rows += row2;
+                }
+            }
+        } else {
+            if (i == 0) {
+                rows += row1;
+            }
+            if (!idDep.length > 0 && !idArr.length > 0) {
+                let row2 = `<tbody><tr><td>${element.ride_name}</td><td>${element.ride_dep}</td><td>${element.ride_arr}</td><td>${element.ride_dep_time}</td><td>${element.ride_arr_time}</td><td>${element.ride_user}</td><td>${em}</td></tr>`;
+                rows += row2;
+            } else {
+                if (element.ride_dep.toLowerCase() == idDep.toLowerCase() || element.ride_arr.toLowerCase() == idArr.toLowerCase()) {
+                    let row2 = `<tr><td>${element.ride_name}</td><td>${element.ride_dep}</td><td>${element.ride_arr}</td><td>${element.ride_dep_time}</td><td>${element.ride_arr_time}</td><td>${element.ride_user}</td><td>${em}</td></tr>`;
+                    rows += row2;
+                }
+            }
+        }
+    });
+    rows += '</tbody>'
+    table.html(rows);
+}
+
 function editRide(element, tableName) {
     let object = $(element).data();
     let id = object.id;
@@ -161,6 +203,10 @@ function bindEventsR() {
     });
     jQuery('#ride-edit-ride').bind('click', (element) => {
         tes();
+    });
+    chargeSearchTable('search-rides-table', 'rides', $('#search-dep').val(), $('#search-arr').val());
+    jQuery('input.search').bind('keyup', (element) => {
+        chargeSearchTable('search-rides-table', 'rides', $('#search-dep').val(), $('#search-arr').val());
     });
 }
 

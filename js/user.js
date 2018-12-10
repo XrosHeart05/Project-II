@@ -204,6 +204,19 @@ function logOut(wiLoc) {
     window.location = wiLoc;
 }
 
+function emailUser(username){
+    let users = getTableData('users');
+    let emas = [];
+    let i = 0;
+    users.forEach((element) => {
+        if(element.username === username){
+            emas[i] = element.email;
+            i ++;
+        }
+    });
+    return emas;
+}
+
 /**
  * bindEvents of the document
  */
