@@ -75,6 +75,11 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
     text-align: center;
 }
 
+#logo-login{
+    height: 1em;
+    width: 1em;
+}
+
 @media only screen and (max-width: 992px){
     .car-pic-box{
         background-size: 110%;

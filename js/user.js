@@ -247,6 +247,7 @@ function bindEvents() {
         loginUser();
     });
     usernameLog('user', '#user-logged-main');
+    usernameLog('user', '#user-logged-main-mov');
     jQuery('#user-logged-main').bind('click', (element) => {
         uModal();
     });
