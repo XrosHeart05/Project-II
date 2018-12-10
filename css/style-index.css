@@ -1,8 +1,22 @@
+#fir-ind{
+    height: 400px;
+}
+
 h2 {
     font-size: 2em;
     margin: 0.4em 0px;
 }
 
+#logo-img{
+    margin-left: 0.5em; 
+    height: 2em;
+    width: 2em;
+}
+
 table tbody{
     margin-bottom: 4em;
+}
+
+.whi-text{
+    color: #ffffff;
 }
