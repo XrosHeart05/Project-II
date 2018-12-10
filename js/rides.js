@@ -5,8 +5,6 @@
 /**
  * Save a ride relationed with the user logged
  */
-
-
 function saveRide() {
     const ride = rideData();
     let u = uLog('user');
@@ -39,6 +37,11 @@ function saveRide() {
     }
 }
 
+/**
+ * Render the rides table
+ * @param {*} htmlObj html object to search into the html
+ * @param {*} tableName name of table to be searched in localStorage
+ */
 function renderTableRides(htmlObj, tableName) {
     let table = jQuery(`#${htmlObj}_table`);
     let rows = "";
@@ -58,7 +61,13 @@ function renderTableRides(htmlObj, tableName) {
     table.html(rows);
 }
 
-
+/**
+ * Charge the search box and the searched rides
+ * @param {*} htmlObj html object to be searched in html
+ * @param {*} tableName name of table to be searched in localStorage
+ * @param {*} idDep departure place
+ * @param {*} idArr arrival place
+ */
 function chargeSearchTable(htmlObj, tableName, idDep, idArr) {
     let table = jQuery(`#${htmlObj}`);
     let rows = "";
@@ -100,17 +109,24 @@ function chargeSearchTable(htmlObj, tableName, idDep, idArr) {
     table.html(rows);
 }
 
+/**
+ * Obtain the necessary data to edit a ride
+ * @param {*} element element caught by events
+ * @param {*} tableName name of table to be searched in localStorage
+ */
 function editRide(element, tableName) {
     let object = $(element).data();
     let id = object.id;
-    console.log(id);
     chargeModalDataRide(tableName, id);
     document.getElementById('ride-add-ride').style.display = "none";
     document.getElementById('ride-edit-ride').style.display = "block";
     document.getElementById('ride-edit-ride').value = id;
 }
 
-function tes() {
+/**
+ * Edit the ride in localStorage
+ */
+function editRideLS() {
     let va = $('#ride-edit-ride').val();
     console.log(va);
     if (saveRide()) {
@@ -202,7 +218,7 @@ function bindEventsR() {
         saveRide();
     });
     jQuery('#ride-edit-ride').bind('click', (element) => {
-        tes();
+        editRideLS();
     });
     chargeSearchTable('search-rides-table', 'rides', $('#search-dep').val(), $('#search-arr').val());
     jQuery('input.search').bind('keyup', (element) => {

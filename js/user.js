@@ -2,6 +2,8 @@
  * JS relationed with the user's interacts
  */
 
+const usersArray = getTableData('users');
+
 /**
  * Add an user to localStorage
  */
@@ -27,8 +29,9 @@ function saveUser() {
     }
 }
 
-const usersArray = getTableData('users');
-
+/**
+ * Edit an user in localStorage
+ */
 function editUser() {
     const ued = userEditData();
     let users = getTableData('users');
@@ -72,6 +75,9 @@ function editUser() {
     });
 }
 
+/**
+ * Charge the data of the current user in a modal editable
+ */
 function chargeModalUserData() {
     let users = getTableData('users');
     let user = getDataFromSessionStorage('user');
@@ -154,6 +160,9 @@ function userLogged(us) {
     return u1;
 }
 
+/**
+ * Charge the data of the current user into a modal
+ */
 function uModal() {
     let users = getTableData('users');
     let u = getDataFromSessionStorage('user');
@@ -204,6 +213,10 @@ function logOut(wiLoc) {
     window.location = wiLoc;
 }
 
+/**
+ * Return an array with the email of all the users
+ * @param {*} username username
+ */
 function emailUser(username){
     let users = getTableData('users');
     let emas = [];
