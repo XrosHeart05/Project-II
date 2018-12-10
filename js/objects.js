@@ -36,12 +36,12 @@ function userLoginData() {
 function userEditData() {
     let fname = $.trim($('#fir-name-edit').val());
     let lname = $.trim($('#las-name-edit').val());
-    let ema = $.trim($('#ema-edit').val());
+    let cupass = $.trim($('#cur-pas-edit').val());
     let pass = $.trim($('#pas-edit').val());
     let userE = {
         fname,
         lname,
-        ema,
+        cupass,
         pass
     }
     return userE;

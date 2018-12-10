@@ -27,21 +27,49 @@ function saveUser() {
     }
 }
 
+const usersArray = getTableData('users');
+
 function editUser() {
     const ued = userEditData();
     let users = getTableData('users');
-    if (ued.fname.length > 0
-        && ued.lname.length > 0
-        && ued.ema.length > 0
-        && ued.pass.length > 0) {
-        if (ued.pass.length < 8) {
-            popU('The password min-length is of 8 characters');
-        } else {
-
+    let user = getDataFromSessionStorage('user');
+    users.forEach(element => {
+        if (element.username === user.username) {
+            if (ued.fname.length > 0
+                && ued.lname.length > 0
+                && ued.cupass.length > 0
+                && ued.pass.length > 0) {
+                if (ued.cupass == user.password) {
+                    if (ued.pass.length >= 8) {
+                        let nFirN = ued.fname;
+                        let nLasN = ued.lname;
+                        let nUName = user.username;
+                        let nEma = user.email;
+                        let nPass = ued.pass;
+                        let indexArray;
+                        usersArray.forEach((element2, i) => {
+                            if (element2.username === user.username) {
+                                indexArray = i;
+                            }
+                        });
+                        console.log(indexArray);
+                        usersArray[indexArray].fir_name = nFirN;
+                        usersArray[indexArray].las_name = nLasN;
+                        usersArray[indexArray].username = nUName;
+                        usersArray[indexArray].email = nEma;
+                        usersArray[indexArray].password = nPass;
+                        localStorage.setItem('users', JSON.stringify(usersArray));
+                    } else {
+                        popU('The new password min length is of 8 characters');
+                    }
+                } else {
+                    popU('The current password is invalid');
+                }
+            } else {
+                popU('No blank spaces');
+            }
         }
-    } else {
-        popU('No blank spaces');
-    }
+    });
 }
 
 function chargeModalUserData() {
@@ -51,10 +79,8 @@ function chargeModalUserData() {
         if (user.username === element.username) {
             let fn = element.fir_name;
             let ln = element.las_name;
-            let em = element.email;
             $('#fir-name-edit').val(fn);
             $('#las-name-edit').val(ln);
-            $('#ema-edit').val(em);
         }
     });
 }

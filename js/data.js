@@ -67,7 +67,7 @@ function deleteFromTable(tableName, objectID) {
         return false;
     }
     let newTable = [];
-    table.array.forEach(element => {
+    table.forEach(element => {
         if (element.id != objectID) {
             newTable.push(element);
         }
