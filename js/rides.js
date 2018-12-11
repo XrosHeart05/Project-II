@@ -94,6 +94,8 @@ function chargeSearchTable(htmlObj, tableName, idDep, idArr) {
             if (i == 0) {
                 rows += row1;
             }
+            console.log(idDep);
+            console.log(idDep.length);
             if (!idDep.length > 0 && !idArr.length > 0) {
                 let row2 = `<tbody><tr><td>${element.ride_name}</td><td>${element.ride_dep}</td><td>${element.ride_arr}</td><td>${element.ride_dep_time}</td><td>${element.ride_arr_time}</td><td>${element.ride_user}</td><td>${em}</td></tr>`;
                 rows += row2;
@@ -220,7 +222,6 @@ function bindEventsR() {
     jQuery('#ride-edit-ride').bind('click', (element) => {
         editRideLS();
     });
-    chargeSearchTable('search-rides-table', 'rides', $('#search-dep').val(), $('#search-arr').val());
     jQuery('input.search').bind('keyup', (element) => {
         chargeSearchTable('search-rides-table', 'rides', $('#search-dep').val(), $('#search-arr').val());
     });

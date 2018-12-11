@@ -123,6 +123,7 @@ function popU(text) {
  * Logged in an user at app
  */
 function loginUser() {
+    let bool = true;
     const userL = userLoginData();
     let users = getTableData('users');
     users.forEach(element => {
@@ -130,9 +131,13 @@ function loginUser() {
             && element.password == userL.password_log) {
             let u1 = userLogged(userL);
             saveToSessionStorage('user', u1);
+            bool = false;
             popL(element.username);
         }
     });
+    if (bool) {
+        popU('User or password invalid');
+    }
 }
 
 /**
